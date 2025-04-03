@@ -1,7 +1,7 @@
 # Gerador de Currículo
 Este projeto é um gerador de currículos no modelo ATS, permitindo que os usuários criem, editem e exportem seus currículos em formato PDF, tudo no client-side (lado do cliente) diretamente no navegador.
 
-## LINK
+## Link
 https://alantbarboza.github.io/gerador-curriculo-pdf/
 
 ## Funcionalidades
