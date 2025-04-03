@@ -18,6 +18,6 @@ Este projeto é um gerador de currículo que permite aos usuários criarem, edit
 - **html2canvas** e **jsPDF** (para geração de PDF).
 
 ## Prévia do Projeto
-![alt text](screenshot1.png)
+![alt text](assets/screenshot1.png)
 
-![alt text](screenshot2.png)
+![alt text](assets/screenshot2.png)
