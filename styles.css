@@ -1,0 +1,183 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    font-family: 'Arial';
+}
+
+body {
+    background: #525659;
+    display: grid;
+    place-items: center;
+}
+
+section {
+    scroll-margin-top: 50vh; 
+}
+
+.curriculo {
+    margin: 20px 0;
+    width: 800px;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
+
+#imprimir {
+    background-color: #fff;
+    padding: 30px 50px;
+    height: auto; 
+}
+
+.cabecalho {
+    width: 100%;
+}
+
+.cabecalho .principal {
+    display: block; 
+    overflow: hidden;
+    text-align: left;
+}
+
+.cabecalho .principal .nome {
+    font-size: 55px;
+    white-space: nowrap; 
+}
+
+.cabecalho .principal .atuacao {
+    font-size: 17px; 
+}
+
+.contatos {
+    padding-top: 7px;
+    padding-left: 0px;
+}
+
+.contatos div {
+    flex-wrap: wrap;
+}
+
+.contatos div span[contenteditable="true"]  {
+    color: rgb(0, 0, 0);
+}
+
+.linha {
+    height: 0.5px;
+    background-color: rgb(87, 87, 87);
+    margin: 25px 0;
+}
+
+.titulo {
+    font-size: 18px;
+    border: none;
+    padding-bottom: 3px;
+    border-bottom: 2px #003366 solid;
+    display: inline-block;
+}
+
+.cab-qualificacao, .titulo, .cab-experiencia, .cab-educacao {
+    font-weight: bold;
+}
+ 
+.bloco-item {
+    margin-bottom: 6px;
+}
+
+button {
+    margin: 15px 0;
+}
+
+.input-checkbox {
+    margin-right: 10px;
+}
+
+.nav {
+    position: fixed;
+    top: 30%; 
+    left: 1%; 
+    height: max-content;
+    width: max-content; 
+    flex-direction: column;
+}
+
+.navbtn {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    transition: 300ms ease-in-out;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+    margin: 3px;
+}
+
+@media (min-width: 768px) {
+    .navbtn:hover {
+        background-color: black;
+        color: #fff;
+        border: #000 2px solid;
+        height: 65px;
+        width: 65px;
+    }
+}
+
+@media (max-width: 768px) {
+    .curriculo {
+        width: 95%;
+        margin-top: 10px;
+        padding: 15px;
+    }
+
+    #imprimir {
+        padding: 10px;
+    }
+
+    .nav {
+        top: calc(100vh - 60px - 10px);
+        left: 50%;
+        transform: translateX(-50%);
+        flex-direction: row;
+        z-index: 1000;
+    }
+    
+    .navbtn {
+        height: 50px;
+        width: 50px;
+        border-radius: 35%;
+        background-color: #000;
+        color: white;
+    }
+
+    .navbtn:active  {
+        height: 55px;
+        width: 55px;
+    }
+
+    .cabecalho .principal .nome {
+        font-size: 28px;
+    }
+
+    .cabecalho .principal .atuacao {
+        font-size: 13px; 
+    }
+
+    .contatos {
+        padding-top: 5px;
+        padding-left: 0;
+    }
+
+    .linha {
+        margin: 15px 0;
+    }
+
+    .titulo {
+        font-size: 16px;
+    }
+
+    .input-checkbox {
+        width: 15px;
+        height: 15px;
+    }
+    
+    button {
+        padding: 6px;
+        font-size: 12px;
+    }
+}
