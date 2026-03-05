@@ -1,50 +1,53 @@
-
 async function baixarPdf() {
+
     let conteudo = document.querySelector("#curriculo");
 
     document.querySelectorAll("#imprimir button, .input-checkbox")
-            .forEach(elemento => elemento.style.display = "none");
+        .forEach(elemento => elemento.style.display = "none");
 
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF('p', 'pt', 'a4');
 
     const larguraPagina = doc.internal.pageSize.width;
-    const alturaPagina = doc.internal.pageSize.height;
-    const margem = { esquerda: 20, direita: 20, superior: 20, inferior: 20 };
-    const larguraUtilizavel = larguraPagina - margem.esquerda - margem.direita;
-    const alturaUtilizavel = alturaPagina - margem.superior - margem.inferior;
 
-    let paginaAtual = 1, alturaAtual = margem.superior;
+    const margem = [20, 20, 20, 20];
+
+    const larguraUtilizavel = larguraPagina - margem[3] - margem[1];
+
+    let alturaAtual = margem[0];
+
     const secoes = conteudo.querySelectorAll('section');
 
     for (let i = 1; i < secoes.length; i++) {
+
         const secao = secoes[i];
         const escala = 595 / conteudo.scrollWidth;
         const alturaSecao = secao.scrollHeight * escala;
-        let posicaoY = (paginaAtual - 1) * alturaPagina + alturaAtual;
 
         await new Promise(resolver => {
             doc.html(secao, {
-                x: margem.esquerda,
-                y: posicaoY,
+                x: margem[3],
+                y: alturaAtual,
+                margin: margem,
+                autoPaging: 'text',
                 width: larguraUtilizavel,
                 windowWidth: secao.scrollWidth,
-                html2canvas: { scale: escala, useCORS: true },
+                html2canvas: {
+                    scale: escala,
+                    useCORS: true
+                },
                 callback: () => {
                     alturaAtual += alturaSecao + 10;
-                    if (alturaAtual + alturaSecao > alturaUtilizavel) {
-                        paginaAtual++;
-                        alturaAtual = margem.superior;
-                    }
                     resolver();
                 }
             });
         });
     }
+
     doc.save('curriculo.pdf');
 
     document.querySelectorAll("#imprimir button, .input-checkbox")
-    .forEach(elemento => elemento.style.display = "inline-block");
+        .forEach(elemento => elemento.style.display = "inline-block");
 }
 
 function salvarDados() {
