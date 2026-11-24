@@ -81,6 +81,28 @@ section {
     margin-bottom: 6px;
 }
 
+.drag-handle {
+    margin: 0 8px 0 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #777;
+    cursor: grab;
+    line-height: 1;
+}
+
+.drag-handle:active {
+    cursor: grabbing;
+}
+
+.drag-handle:hover {
+    color: #003366;
+}
+
+.bloco-item.arrastando {
+    opacity: 0.45;
+}
+
 button {
     margin: 15px 0;
 }

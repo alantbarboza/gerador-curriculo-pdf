@@ -56,15 +56,17 @@
                 <section>
                     <span class="titulo">EXPERIÊNCIA</span><br><br>
                     <div data-field="experiencia">
-                        <div class="bloco-item">
-                            <span><input type="checkbox" class="input-checkbox"></span>
-                            <span class="cab-experiencia" contenteditable="true">Cargo</span>
-                            <div><span contenteditable="true">Nome da Empresa</span><span>&nbsp-&nbsp</span><span contenteditable="true">Ano</span></div>   
-                            <div contenteditable="true">
-                                Resultados e responsabilidades.
-                            </div> 
+                        <div id="experiencia" class="lista-itens">
+                            <div class="bloco-item">
+                                <button type="button" class="drag-handle" draggable="true" title="Arraste para reordenar" aria-label="Arraste para reordenar"><i class="fas fa-arrows-alt"></i></button>
+                                <span><input type="checkbox" class="input-checkbox"></span>
+                                <span class="cab-experiencia" contenteditable="true">Cargo</span>
+                                <div><span contenteditable="true">Nome da Empresa</span><span>&nbsp-&nbsp</span><span contenteditable="true">Ano</span></div>
+                                <div contenteditable="true">
+                                    Resultados e responsabilidades.
+                                </div>
+                            </div>
                         </div> 
-                        <div id="experiencia" class="bloco-item"></div>
                     </div>
                     <button type="button" class="btn btn-success" onclick="adicionarExp()"><i class="fas fa-plus-circle"></i> Experiência</button>
                     <button type="button" class="btn btn-danger" onclick="removerItem(event)"><i class="fas fa-minus-circle"></i> Experiência</button>
@@ -74,12 +76,14 @@
                 <section>
                     <span class="titulo">EDUCAÇÃO</span><br><br>
                     <div data-field="educacao">
-                        <div class="bloco-item">
-                            <span><input type="checkbox" class="input-checkbox"></span>
-                            <span class="cab-educacao" contenteditable="true">Diploma</span>
-                            <div><span contenteditable="true">Nome da Instituição</span><span>&nbsp-&nbsp</span><span contenteditable="true">Ano</span></div>    
+                        <div id="educacao" class="lista-itens">
+                            <div class="bloco-item">
+                                <button type="button" class="drag-handle" draggable="true" title="Arraste para reordenar" aria-label="Arraste para reordenar"><i class="fas fa-arrows-alt"></i></button>
+                                <span><input type="checkbox" class="input-checkbox"></span>
+                                <span class="cab-educacao" contenteditable="true">Diploma</span>
+                                <div><span contenteditable="true">Nome da Instituição</span><span>&nbsp-&nbsp</span><span contenteditable="true">Ano</span></div>
+                            </div>
                         </div>
-                        <div id="educacao" class="bloco-item"></div>
                     </div>
                     <button type="button" class="btn btn-success" onclick="adicionarEdu()"><i class="fas fa-plus-circle"></i> Educação</button>
                     <button type="button" class="btn btn-danger" onclick="removerItem(event)"><i class="fas fa-minus-circle"></i> Educação</button>    
@@ -89,11 +93,13 @@
                 <section>
                     <span class="titulo">IDIOMA</span><br><br>
                     <div data-field="idioma">
-                        <div class="bloco-item">
-                            <span><input type="checkbox" class="input-checkbox"></span>
-                            <span contenteditable="true">Idioma</span><span>&nbsp-&nbsp</span><span contenteditable="true">Nível</span>
+                        <div id="idioma" class="lista-itens">
+                            <div class="bloco-item">
+                                <button type="button" class="drag-handle" draggable="true" title="Arraste para reordenar" aria-label="Arraste para reordenar"><i class="fas fa-arrows-alt"></i></button>
+                                <span><input type="checkbox" class="input-checkbox"></span>
+                                <span contenteditable="true">Idioma</span><span>&nbsp-&nbsp</span><span contenteditable="true">Nível</span>
+                            </div>
                         </div>
-                        <div id="idioma" class="bloco-item"></div>
                     </div>
                     <button type="button" class="btn btn-success" onclick="adicionarIdi()"><i class="fas fa-plus-circle"></i> Idioma</button>
                     <button type="button" class="btn btn-danger" onclick="removerItem(event)"><i class="fas fa-minus-circle"></i> Idioma</button>    
@@ -103,13 +109,15 @@
                 <section>
                     <span class="titulo">QUALIFICAÇÕES PROFISSIONAIS</span><br><br>
                     <div data-field="qualificacaoProfissional">
-                        <div class="bloco-item">
-                            <span><input type="checkbox" class="input-checkbox"></span>
-                            <span class="cab-qualificacao" contenteditable="true">Qualificação Profissional</span>
-                            <br>
-                            <div><span contenteditable="true">Nome da Instituição</span><span>&nbsp-&nbsp</span><span contenteditable="true">Ano</span></div>    
+                        <div id="qualificacao" class="lista-itens">
+                            <div class="bloco-item">
+                                <button type="button" class="drag-handle" draggable="true" title="Arraste para reordenar" aria-label="Arraste para reordenar"><i class="fas fa-arrows-alt"></i></button>
+                                <span><input type="checkbox" class="input-checkbox"></span>
+                                <span class="cab-qualificacao" contenteditable="true">Qualificação Profissional</span>
+                                <br>
+                                <div><span contenteditable="true">Nome da Instituição</span><span>&nbsp-&nbsp</span><span contenteditable="true">Ano</span></div>
+                            </div>
                         </div>
-                        <div id="qualificacao" class="bloco-item"></div>
                     </div> 
                     <button type="button" class="btn btn-success" onclick="adicionarQua()"><i class="fas fa-plus-circle"></i> Qualificação</button>
                     <button type="button" class="btn btn-danger" onclick="removerItem(event)"><i class="fas fa-minus-circle"></i> Qualificação</button>       
@@ -119,11 +127,13 @@
                 <section>
                     <span class="titulo">HABILIDADES</span><br><br>
                     <div data-field="habilidade">
-                        <div class="bloco-item">
-                            <span><input type="checkbox" class="input-checkbox"></span>
-                            <span contenteditable="true">Habilidade / Skill</span><span>&nbsp-&nbsp</span><span contenteditable="true">Nível</span>
+                        <div id="habilidade" class="lista-itens">
+                            <div class="bloco-item">
+                                <button type="button" class="drag-handle" draggable="true" title="Arraste para reordenar" aria-label="Arraste para reordenar"><i class="fas fa-arrows-alt"></i></button>
+                                <span><input type="checkbox" class="input-checkbox"></span>
+                                <span contenteditable="true">Habilidade / Skill</span><span>&nbsp-&nbsp</span><span contenteditable="true">Nível</span>
+                            </div>
                         </div>
-                        <div id="habilidade" class="bloco-item"></div>
                     </div>
                     <button type="button" class="btn btn-success" onclick="adicionarHab()"><i class="fas fa-plus-circle"></i> Habilidade</button>
                     <button type="button" class="btn btn-danger" onclick="removerItem(event)"><i class="fas fa-minus-circle"></i> Habilidade</button>    

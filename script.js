@@ -214,6 +214,7 @@ function adicionarExp() {
     let novoExp = document.createElement("div");
     novoExp.classList.add("bloco-item");
     novoExp.innerHTML = `
+        <button type="button" class="drag-handle" draggable="true" title="Arraste para reordenar" aria-label="Arraste para reordenar"><i class="fas fa-arrows-alt"></i></button>
         <span><input type="checkbox" class="input-checkbox"></span>
         <span class="cab-experiencia" contenteditable="true">Cargo</span>
         <div><span contenteditable="true">Nome da Empresa</span><span>&nbsp-&nbsp</span><span contenteditable="true">Ano</span></div>   
@@ -228,6 +229,7 @@ function adicionarEdu() {
     let novoEdu = document.createElement("div");
     novoEdu.classList.add("bloco-item");
     novoEdu.innerHTML = `
+        <button type="button" class="drag-handle" draggable="true" title="Arraste para reordenar" aria-label="Arraste para reordenar"><i class="fas fa-arrows-alt"></i></button>
         <span><input type="checkbox" class="input-checkbox"></span>
         <span class="cab-educacao" contenteditable="true">Diploma</span>
         <div><span contenteditable="true">Nome da Instituição</span><span>&nbsp-&nbsp</span><span contenteditable="true">Ano</span></div>
@@ -239,6 +241,7 @@ function adicionarHab() {
     let novoHab = document.createElement("div");
     novoHab.classList.add("bloco-item");
     novoHab.innerHTML = `
+        <button type="button" class="drag-handle" draggable="true" title="Arraste para reordenar" aria-label="Arraste para reordenar"><i class="fas fa-arrows-alt"></i></button>
         <span><input type="checkbox" class="input-checkbox"></span>
         <span contenteditable="true">Habilidade / Skill</span><span>&nbsp-&nbsp</span><span contenteditable="true">Nível</span>
     `;
@@ -249,6 +252,7 @@ function adicionarIdi() {
     let novoIdi = document.createElement("div");
     novoIdi.classList.add("bloco-item");
     novoIdi.innerHTML = `
+        <button type="button" class="drag-handle" draggable="true" title="Arraste para reordenar" aria-label="Arraste para reordenar"><i class="fas fa-arrows-alt"></i></button>
         <span><input type="checkbox" class="input-checkbox"></span>
         <span contenteditable="true">Idioma</span><span>&nbsp-&nbsp</span><span contenteditable="true">Nível</span>
     `;
@@ -259,6 +263,7 @@ function adicionarQua() {
     let novoQua = document.createElement('div');
     novoQua.classList.add("bloco-item");
     novoQua.innerHTML = (`
+        <button type="button" class="drag-handle" draggable="true" title="Arraste para reordenar" aria-label="Arraste para reordenar"><i class="fas fa-arrows-alt"></i></button>
         <span><input type="checkbox" class="input-checkbox"></span>
         <span class="cab-qualificacao" contenteditable="true">Qualificação Profissional</span>
         <br>
@@ -266,6 +271,40 @@ function adicionarQua() {
     `);  
     document.querySelector("#qualificacao").appendChild(novoQua); 
 }
+
+let itemArrastado = null;
+
+document.addEventListener("dragstart", (evento) => {
+    const alca = evento.target.closest(".drag-handle");
+    if (!alca) return;
+
+    const item = alca.closest(".bloco-item");
+    if (!item || !item.parentElement.classList.contains("lista-itens")) {
+        evento.preventDefault();
+        return;
+    }
+
+    itemArrastado = item;
+    item.classList.add("arrastando");
+    evento.dataTransfer.effectAllowed = "move";
+    evento.dataTransfer.setData("text/plain", "");
+});
+
+document.addEventListener("dragover", (evento) => {
+    if (!itemArrastado) return;
+
+    const destino = evento.target.closest(".bloco-item");
+    if (!destino || destino === itemArrastado || destino.parentElement !== itemArrastado.parentElement) return;
+
+    evento.preventDefault();
+    const antes = evento.clientY < destino.getBoundingClientRect().top + destino.offsetHeight / 2;
+    destino.parentElement.insertBefore(itemArrastado, antes ? destino : destino.nextSibling);
+});
+
+document.addEventListener("dragend", () => {
+    if (itemArrastado) itemArrastado.classList.remove("arrastando");
+    itemArrastado = null;
+});
 
 let guardarTexto = '';
 function limitarTexto(elemento, limite) {
